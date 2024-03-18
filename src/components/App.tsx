@@ -1,12 +1,12 @@
 import { useState } from 'react'
-import './App.css'
+import styles from './App.module.css'
 
 export function App() {
   return (
     <>
-      <h1>
+      <strong className={styles.title}>
         Estou funcionando
-      </h1>
+      </strong>
     </>
   )
 }
