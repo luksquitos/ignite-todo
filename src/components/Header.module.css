@@ -1,0 +1,20 @@
+.header {
+  background-color: var(--gray-700);
+  height: 12.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header > div {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.rocket {
+  height: 2.25rem;
+}
+
+.logo {
+  height: 2.25rem;
+}
