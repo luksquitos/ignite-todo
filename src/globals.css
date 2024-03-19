@@ -22,6 +22,11 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: var(--gray-600);
+  color: var(--gray-100);
+}
+
 body, textarea, input, button {
   font-family: "Inter", sans-serif;
   font-size: 1rem;
