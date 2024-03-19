@@ -18,7 +18,9 @@
 * {
   margin: 0;
   padding: 0;
-  text-decoration: none;
+  /* This removes funcionality from 
+  <del> in Task.tsx */
+  /* text-decoration: none; */
   box-sizing: border-box;
 }
 

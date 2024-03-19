@@ -1,5 +1,6 @@
 import styles from './Board.module.css'
 import { EmptyBoard } from './EmptyBoard'
+import { Task } from './Task'
 
 
 const jsonTasks = []
@@ -19,7 +20,9 @@ export function Board() {
       </header>
 
       <main className={styles.mainSection}>
-        <EmptyBoard />
+        {/* <EmptyBoard /> */}
+        <Task text={'Trabalho da faculdade de Inteligência Artificial'} />
+        <Task text={'Entrar na Kingspan'} />
       </main>
     </>
   )
