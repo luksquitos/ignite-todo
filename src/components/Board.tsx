@@ -1,4 +1,5 @@
 import styles from './Board.module.css'
+import { EmptyBoard } from './EmptyBoard'
 
 
 const jsonTasks = []
@@ -17,16 +18,8 @@ export function Board() {
         </div>
       </header>
 
-      <main>
-        {/* { FIXME por que erro aqui ?
-          if (!jsonTasks) {
-             <EmptyBoard />
-          } 
-          
-          else {
-            jsonTasks.map()
-          }
-        } */}
+      <main className={styles.mainSection}>
+        <EmptyBoard />
       </main>
     </>
   )
