@@ -4,7 +4,6 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  /* border: 1px solid red; */
 }
 
 .header div {
@@ -13,14 +12,12 @@
 }
 
 .number {
-  padding: 2% 8px;
+  padding: 2px 8px;
   background-color: var(--gray-400);
   border-radius: 999px;
   font-size: 0.75rem;
   display: flex;
   align-items: center;
-  /* FIXME Por que o conteúdo não fica certo lá dentro?
-  O padding de 2px parece que não tem efeito de nada */
 }
 
 .newTasks, .finishedTasks {
@@ -33,4 +30,8 @@
 
 .finishedTasks {
   color: var(--purple);
+}
+
+.mainSection {
+  margin-top: 1.5rem;
 }
