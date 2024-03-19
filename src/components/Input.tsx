@@ -6,7 +6,7 @@ export function Input() {
   return (
     <>
       <form className={styles.form}>
-        <textarea 
+        <input 
           // onChange={}
           placeholder="Adicione uma nova tarefa"
         />
