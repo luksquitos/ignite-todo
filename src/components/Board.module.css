@@ -1,0 +1,36 @@
+.header {
+  margin-top: 4rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  /* border: 1px solid red; */
+}
+
+.header div {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.number {
+  padding: 2% 8px;
+  background-color: var(--gray-400);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  /* FIXME Por que o conteúdo não fica certo lá dentro?
+  O padding de 2px parece que não tem efeito de nada */
+}
+
+.newTasks, .finishedTasks {
+  font-size: 0.875rem;
+}
+
+.newTasks {
+  color: var(--blue);
+}
+
+.finishedTasks {
+  color: var(--purple);
+}
