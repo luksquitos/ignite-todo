@@ -22,7 +22,7 @@ export function Board() {
       <main className={styles.mainSection}>
         {/* <EmptyBoard /> */}
         <Task text={'Trabalho da faculdade de Inteligência Artificial'} />
-        <Task text={'Entrar na Kingspan'} />
+        <Task isCompleted text={'Entrar na Kingspan'} />
       </main>
     </>
   )

@@ -1,12 +1,19 @@
 .task {
   background-color: var(--gray-500);
-  border: 1px solid var(--gray-400);
   border-radius: 8px;
   padding: 1rem;
   display: flex;
   gap: 0.75rem;
   color: var(--gray-100);
   align-items: center;
+}
+
+.task-checked {
+  border: 0;
+}
+
+.task-unchecked {
+  border: 1px solid var(--gray-400);
 }
 
 .task + .task {
@@ -16,10 +23,8 @@
 /* Let me guess
 Problems with this checkbox ? */
 .checkbox {
-  background-color: transparent;
   height: 1rem;
   width: 1rem;
-  border: 1px solid var(--blue);
   border-radius: 8px;
   color: var(--gray-100);
   display: flex;
@@ -29,26 +34,31 @@ Problems with this checkbox ? */
   cursor: pointer;
 }
 
-.checkImg {
-  visibility: hidden;
+.checkbox-unchecked {
+  background-color: transparent;
+  border: 1px solid var(--blue);
 }
 
-.checkbox:hover {
-  background-color: rgba(30, 111, 159, 0.2);
-  border: 1px solid var(--blue-dark);
-}
-
-.checkbox:active {
+.checkbox-checked {
   background-color: var(--purple-dark);
   border: 0;
 }
 
-.checkbox:active > .checkImg {
-  visibility: visible;
+.checkbox-checked:hover {
+  background-color: var(--purple);
+}
+
+.checkbox-unchecked:hover {
+  background-color: rgba(30, 111, 159, 0.2);
+  border: 1px solid var(--blue-dark);
 }
 
 .task > p, del {
   flex: 1;
+}
+
+.task > del{
+  color: var(--gray-300);
 }
 
 .deleteButton {
@@ -71,3 +81,5 @@ Problems with this checkbox ? */
 
 /* TODO E depois que o botão estiver pressionado ?
 Vai ter que fazer algumas alterações no .task */
+
+
