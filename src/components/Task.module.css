@@ -6,10 +6,11 @@
   gap: 0.75rem;
   color: var(--gray-100);
   align-items: center;
+  transition: 0.6s;
 }
 
 .task-checked {
-  border: 0;
+  border: 1px solid var(--gray-500);
 }
 
 .task-unchecked {

@@ -1,11 +1,14 @@
 import styles from './Board.module.css'
 import { EmptyBoard } from './EmptyBoard'
 import { Task } from './Task'
+import { ITask } from './App'
 
 
-const jsonTasks = []
+interface Board {
+  tasks: ITask[]
+}
 
-export function Board() {
+export function Board({tasks}: Board) {
   return (
     <>
       <header className={styles.header}>
@@ -20,9 +23,14 @@ export function Board() {
       </header>
 
       <main className={styles.mainSection}>
-        {/* <EmptyBoard /> */}
-        <Task text={'Trabalho da faculdade de Inteligência Artificial'} />
-        <Task isCompleted text={'Entrar na Kingspan'} />
+        {
+          tasks.length == 0?  <EmptyBoard />
+          : tasks.map(task => {
+              return <Task text={task.description} />
+            }
+          )
+        }
+
       </main>
     </>
   )
