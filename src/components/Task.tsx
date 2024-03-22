@@ -3,13 +3,15 @@ import styles from './Task.module.css'
 import { Trash, Check } from '@phosphor-icons/react'
 
 
-interface Task {
+interface ITask {
+  id: number
   isCompleted?: boolean,
   text: string
+  updateTask: (id: number, isChecked: boolean) => void
 }
 
 
-export function Task({isCompleted = false, text}: Task) {
+export function Task({id, isCompleted = false, text, updateTask}: ITask) {
   const [isChecked, setIsChecked] = useState(isCompleted)
   const taskClassName = isChecked
     ? styles["task-checked"]
@@ -22,7 +24,7 @@ export function Task({isCompleted = false, text}: Task) {
     function handleCheckbox(){
       // setIsChecked(isChecked ? false : true)
       setIsChecked(!isChecked)
-      // Como o valor volta a ser false ?
+      updateTask(id, !isChecked)
     }
 
     function handleDeleteComment(){

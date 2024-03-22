@@ -5,15 +5,38 @@ import { Input } from './Input'
 import { Board } from './Board'
 
 export interface ITask {
+  id: number
+  isChecked?: boolean
   description: string
 }
 
 export function App() {
-  const [task, setTask] = useState<ITask[]>([])
+  const [tasks, setTasks] = useState<ITask[]>([])
 
-  function updateTasks(description: string){
-    setTask([...task, {description: description}])
+  function createTask(description: string){
+    setTasks(
+      [...tasks, 
+        {
+          id: tasks.length + 1,
+          description: description,
+          isChecked: false
+        }
+      ]
+    )
   }
+
+  function updateTask(id: number, isChecked: boolean){
+    const updatedTask = tasks.find(task => {
+      if(task.id == id){
+        return {...task, isChecked: isChecked}
+      }
+    })
+
+    setTasks(
+      [...tasks.filter(task => task.id !== id), updatedTask!]
+    )
+  }
+
 
   return (
     <>
@@ -21,10 +44,11 @@ export function App() {
 
       <section className={styles.wrapper}>
         <Input 
-          updateTasks={updateTasks}
+          createTasks={createTask}
         />
         <Board 
-          tasks={task}
+          tasks={tasks}
+          updateTask={updateTask}
         />
       </section>
     </>

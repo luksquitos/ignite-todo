@@ -3,15 +3,15 @@ import styles from './Input.module.css'
 import { ChangeEvent, FormEvent, useState } from 'react'
 
 interface IInput{
-  updateTasks: (description: string) => void
+  createTasks: (description: string) => void
 }
 
-export function Input({updateTasks}: IInput) {
+export function Input({createTasks}: IInput) {
   const [taskInput, setTaskInput] = useState('')
   
   function handleNewTask(e: FormEvent<HTMLFormElement>){
     e.preventDefault()
-    updateTasks(taskInput)
+    createTasks(taskInput)
     setTaskInput('')
   }
 
