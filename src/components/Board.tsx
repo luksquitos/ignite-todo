@@ -11,8 +11,8 @@ interface Board {
 }
 
 export function Board({tasks, updateTask}: Board) {
-  console.log("Quantidade finalizada")
-  console.log(tasks.filter(task => task.isChecked).length)
+  // console.log("Quantidade finalizada")
+  // console.log(tasks.filter(task => task.isChecked).length)
 
   return (
     <>

@@ -22,7 +22,6 @@ export function Task({id, isCompleted = false, text, updateTask}: ITask) {
     : styles["checkbox-unchecked"]
 
     function handleCheckbox(){
-      // setIsChecked(isChecked ? false : true)
       setIsChecked(!isChecked)
       updateTask(id, !isChecked)
     }

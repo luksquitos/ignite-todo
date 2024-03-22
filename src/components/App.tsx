@@ -26,11 +26,8 @@ export function App() {
   }
 
   function updateTask(id: number, isChecked: boolean){
-    const updatedTask = tasks.find(task => {
-      if(task.id == id){
-        return {...task, isChecked: isChecked}
-      }
-    })
+    let updatedTask = tasks.find(task => task.id == id)
+    updatedTask!.isChecked = isChecked
 
     setTasks(
       [...tasks.filter(task => task.id !== id), updatedTask!]
