@@ -26,8 +26,9 @@ export function Board({tasks, updateTask, deleteTask}: Board) {
           <strong className={styles.number}>
             <strong>
               {
-                tasksCount > 0? `${finishedCount} de ${tasksCount}`
-                : tasksCount
+                tasksCount > 0
+                  ? `${finishedCount} de ${tasksCount}`
+                  : tasksCount
               }
             </strong>
           </strong>
@@ -36,7 +37,8 @@ export function Board({tasks, updateTask, deleteTask}: Board) {
 
       <main className={styles.mainSection}>
         {
-          tasksCount == 0?  <EmptyBoard />
+          tasksCount == 0
+          ? <EmptyBoard />
           : tasks.map(task => {
               return (
                 <Task 
