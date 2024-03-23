@@ -4,11 +4,13 @@ import { Header } from './Header'
 import { Input } from './Input'
 import { Board } from './Board'
 
+
 export interface ITask {
   id: number
   isChecked?: boolean
   description: string
 }
+
 
 export function App() {
   const [tasks, setTasks] = useState<ITask[]>([])
@@ -26,12 +28,16 @@ export function App() {
   }
 
   function updateTask(id: number, isChecked: boolean){
-    let updatedTask = tasks.find(task => task.id == id)
-    updatedTask!.isChecked = isChecked
+    const updatedTasks = tasks.map(task => {
+      if(task.id === id){
+        task.isChecked = isChecked
+      }
 
-    setTasks(
-      [...tasks.filter(task => task.id !== id), updatedTask!]
-    )
+      return task
+    })
+
+    setTasks([...updatedTasks])
+
   }
 
 
