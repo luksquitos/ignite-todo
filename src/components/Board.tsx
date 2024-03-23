@@ -18,7 +18,7 @@ export function Board({tasks, updateTask}: Board) {
       <header className={styles.header}>
         <div>
           <strong className={styles.newTasks}>Tarefas Criadas</strong>
-          <strong className={styles.number}>{tasks.length}</strong>
+          <strong className={styles.number}>{tasksCount}</strong>
         </div>
         <div>
           <strong className={styles.finishedTasks}>Concluidas</strong>
@@ -35,7 +35,7 @@ export function Board({tasks, updateTask}: Board) {
 
       <main className={styles.mainSection}>
         {
-          tasks.length == 0?  <EmptyBoard />
+          tasksCount == 0?  <EmptyBoard />
           : tasks.map(task => {
               return (
                 <Task 
