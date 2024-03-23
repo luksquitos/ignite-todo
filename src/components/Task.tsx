@@ -30,7 +30,7 @@ export function Task({id, text, updateTask, deleteTask, isCompleted = false,}: I
     function handleDeleteTask(){
       deleteTask(id)
     }
-
+  console.log(`Renderizando task ${id} com ${isCompleted}`)
   return (
     <div className={`${styles.task} ${taskClassName}`}>
       {/* Combinações de CSS's */}  
