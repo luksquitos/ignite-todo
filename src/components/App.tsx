@@ -40,6 +40,12 @@ export function App() {
 
   }
 
+  function deleteTask(id: number) {
+    setTasks(
+      [...tasks.filter(task => task.id != id)]
+    )
+  }
+
 
   return (
     <>
@@ -52,6 +58,7 @@ export function App() {
         <Board 
           tasks={tasks}
           updateTask={updateTask}
+          deleteTask={deleteTask}
         />
       </section>
     </>

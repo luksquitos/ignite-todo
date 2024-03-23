@@ -7,9 +7,10 @@ import { ITask } from './App'
 interface Board {
   tasks: ITask[]
   updateTask: (id: number, isChecked: boolean) => void
+  deleteTask: (id: number) => void
 }
 
-export function Board({tasks, updateTask}: Board) {
+export function Board({tasks, updateTask, deleteTask}: Board) {
   const finishedCount = tasks.filter(task => task.isChecked).length
   const tasksCount = tasks.length
 
@@ -41,7 +42,9 @@ export function Board({tasks, updateTask}: Board) {
                 <Task 
                   id={task.id}
                   text={task.description} 
+                  isCompleted={task.isChecked}
                   updateTask={updateTask}
+                  deleteTask={deleteTask}
                 />
               )
             }

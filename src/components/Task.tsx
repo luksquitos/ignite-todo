@@ -5,13 +5,14 @@ import { Trash, Check } from '@phosphor-icons/react'
 
 interface ITask {
   id: number
-  isCompleted?: boolean,
   text: string
+  isCompleted?: boolean,
   updateTask: (id: number, isChecked: boolean) => void
+  deleteTask: (id: number) => void
 }
 
 
-export function Task({id, isCompleted = false, text, updateTask}: ITask) {
+export function Task({id, text, updateTask, deleteTask, isCompleted = false,}: ITask) {
   const [isChecked, setIsChecked] = useState(isCompleted)
   const taskClassName = isChecked
     ? styles["task-checked"]
@@ -26,10 +27,9 @@ export function Task({id, isCompleted = false, text, updateTask}: ITask) {
       updateTask(id, !isChecked)
     }
 
-    function handleDeleteComment(){
-      // deleteComment(id)
+    function handleDeleteTask(){
+      deleteTask(id)
     }
-
 
   return (
     <div className={`${styles.task} ${taskClassName}`}>
@@ -46,7 +46,10 @@ export function Task({id, isCompleted = false, text, updateTask}: ITask) {
 
       {/* Não é possível utilizar if e else aqui. Apenas operador ternário */}
       {isChecked ? <del>{text}</del>: <p>{text}</p>} 
-      <button className={styles.deleteButton}>
+      <button 
+        className={styles.deleteButton}
+        onClick={handleDeleteTask}
+      >
         <Trash />
       </button>
     </div>
