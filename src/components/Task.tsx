@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import styles from './Task.module.css'
 import { Trash, Check } from '@phosphor-icons/react'
 
@@ -13,24 +12,22 @@ interface ITask {
 
 
 export function Task({id, text, updateTask, deleteTask, isCompleted = false,}: ITask) {
-  const [isChecked, setIsChecked] = useState(isCompleted)
-  const taskClassName = isChecked
+  const taskClassName = isCompleted
     ? styles["task-checked"]
     : styles["task-unchecked"]
 
-  const checkboxClassName = isChecked
+  const checkboxClassName = isCompleted
     ? styles["checkbox-checked"]
     : styles["checkbox-unchecked"]
 
     function handleCheckbox(){
-      setIsChecked(!isChecked)
-      updateTask(id, !isChecked)
+      updateTask(id, !isCompleted)
     }
 
     function handleDeleteTask(){
       deleteTask(id)
     }
-  console.log(`Renderizando task ${id} com ${isCompleted}`)
+    
   return (
     <div className={`${styles.task} ${taskClassName}`}>
       {/* Combinações de CSS's */}  
@@ -41,11 +38,11 @@ export function Task({id, text, updateTask, deleteTask, isCompleted = false,}: I
         {/* Isso é chamado de avaliação curto-circuito.
         Caso o primeiro elemento seja verdadeiro, o valor após o '&&' 
         será retornado */}
-        {isChecked && <Check size={12}/>}
+        {isCompleted && <Check size={12}/>}
       </span>
 
       {/* Não é possível utilizar if e else aqui. Apenas operador ternário */}
-      {isChecked ? <del>{text}</del>: <p>{text}</p>} 
+      {isCompleted ? <del>{text}</del>: <p>{text}</p>} 
       <button 
         className={styles.deleteButton}
         onClick={handleDeleteTask}
