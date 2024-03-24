@@ -47,11 +47,16 @@
   gap: 0.5rem;
   font-weight: bold;
   transition: 0.3s;
+  cursor: pointer;
 }
 
 .form > button[type=submit]:hover {
   background-color: var(--blue);
 }
 
-/* TODO Bloquear botão caso não tenha nada no input */
+.form > button[type=submit]:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
 

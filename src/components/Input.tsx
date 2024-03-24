@@ -8,6 +8,7 @@ interface IInput{
 
 export function Input({createTasks}: IInput) {
   const [taskInput, setTaskInput] = useState('')
+  const isEmptyInput = taskInput.length == 0;
   
   function handleNewTask(e: FormEvent<HTMLFormElement>){
     e.preventDefault()
@@ -28,10 +29,11 @@ export function Input({createTasks}: IInput) {
             onChange={handleTaskInput}
             placeholder="Adicione uma nova tarefa"
             value={taskInput}
+            required
           />
-          <button type='submit'>
+          <button type='submit' disabled={isEmptyInput}>
             Criar
-            <PlusCircle />
+            <PlusCircle size={18}/>
           </button>
       </form>        
 
