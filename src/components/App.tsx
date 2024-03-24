@@ -11,43 +11,19 @@ export interface ITask {
   description: string
 }
 
-const tasksJson = [
-  {
-    id: 1,
-    isChecked: false,
-    description: "Tarefa 1"
-  },
-  {
-    id: 2,
-    isChecked: false,
-    description: "Tarefa 2"
-  },
-  {
-    id: 3,
-    isChecked: false,
-    description: "Tarefa 3"
-  },
-  {
-    id: 4,
-    isChecked: false,
-    description: "Tarefa 4"
-  },
-  {
-    id: 5,
-    isChecked: false,
-    description: "Tarefa 5"
-  },
-
-]
 
 export function App() {
-  const [tasks, setTasks] = useState<ITask[]>(tasksJson)
+  const [tasks, setTasks] = useState<ITask[]>([])
 
   function createTask(description: string){
+    const newId = tasks.length > 0
+      ? tasks[tasks.length - 1].id + 1
+      : 1
+
     setTasks(
       [...tasks, 
         {
-          id: tasks.length + 1,
+          id: newId,
           description: description,
           isChecked: false
         }
@@ -71,12 +47,9 @@ export function App() {
   function deleteTask(id: number) {
     setTasks(
       [...tasks.filter(task => task.id != id)]
-      // Ao apagar uma task. Está tendo um bug visual
-      // no Checkbox
     )
   }
 
-  console.log(tasks)
   return (
     <>
       <Header />
