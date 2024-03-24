@@ -41,7 +41,8 @@ export function Board({tasks, updateTask, deleteTask}: Board) {
           ? <EmptyBoard />
           : tasks.map(task => {
               return (
-                <Task 
+                <Task
+                  key={task.id} 
                   id={task.id}
                   text={task.description} 
                   isCompleted={task.isChecked}
